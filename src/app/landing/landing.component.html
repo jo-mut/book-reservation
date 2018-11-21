@@ -6,27 +6,32 @@
             </div>
             <div class="col-md-4">
                 <div class="card booking-form">
-                    <form action="">
+                    <form novalidate #form="ngForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="FIRST NAME">
+                            <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" placeholder="FIRST NAME">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="LAST NAME">
+                            <input type="text" class="form-control" name="secondName" [(ngModel)]="model.secondName" placeholder="LAST NAME">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="EMAIL">
+                            <input type="text" class="form-control" name="email" [(ngModel)]="model.email" placeholder="EMAIL">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="PHONE">
+                            <input type="text" class="form-control" name="phone" [(ngModel)]="model.phone" placeholder="PHONE">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="DATE">
+                            <input type="text" class="form-control" name="date" [(ngModel)]="model.date" placeholder="DATE">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="TIME">
+                            <select class="form-control" name="time" [(ngModel)]="model.time">
+                                <option value="">
+                                    Select the ideal time you would lie drop by
+                                </option>
+                                <option *ngFor="let t of time" value="t">{{t}}</option>
+                           </select>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary">BOOK</button>
+                            <button class="btn btn-primary" type="submit">BOOK</button>
                         </div>
                     </form>
                 </div>
